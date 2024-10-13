@@ -19,7 +19,8 @@ def udp_server(host='192.168.235.131', port=8001):
             
             chosen_file, addr = server.recvfrom(BUFFER_SIZE)
             chosen_file = chosen_file.decode().strip()
-
+            print(f"Client chose file: {chosen_file} via UDP")
+            
             if chosen_file in file_list:
                 file_path = os.path.join(FILE_DIR, chosen_file)
 
@@ -53,7 +54,7 @@ def tcp_server(host='192.168.235.131', port=8000):
                 print(f"Sent file list to {addr}")
 
                 chosen_file = conn.recv(BUFFER_SIZE).decode().strip()
-                print(f"Client chose file: {chosen_file}")
+                print(f"Client chose file: {chosen_file} via TCP")
 
                 if chosen_file in file_list:
                     file_path = os.path.join(FILE_DIR, chosen_file)

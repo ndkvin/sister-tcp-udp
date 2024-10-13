@@ -64,7 +64,6 @@ def tcp_server(host='192.168.235.131', port=8000):
                             if not data:
                                 break
                             conn.sendall(data) 
-                    conn.sendall(b'EOF')  
                     print(f"File '{chosen_file}' sent successfully to {addr} via TCP")
                 else:
                     conn.sendall(b"ERROR: File not found")

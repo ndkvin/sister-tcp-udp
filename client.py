@@ -68,7 +68,7 @@ def tcp_client(host='192.168.235.131', port=8000):
         with open(f"./download_tcp/{chosen_file}", 'wb') as f:
             while True:
                 data = client.recv(BUFFER_SIZE)
-                if data == b'EOF':
+                if not data:
                     break
                 f.write(data)
         end_time = time.time()
